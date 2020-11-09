@@ -1,7 +1,7 @@
 {
   "name": "sx128x-driver",
   "version": "1.0.0",
-  "description": "NodeJS driver for Semtech SX128x family of 2.4GHz LoRa radio devices ",
+  "description": "NodeJS driver for Semtech SX128x family of 2.4GHz LoRa radio devices",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,7 @@
     "semtech"
   ],
   "author": "P. Chambers",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "events": "^3.2.0",
     "util": "^0.12.3"
