@@ -30,7 +30,7 @@ async function send(){
     let count = 0;
 
     try{
-        await radio.open();
+        radio = await radio.open();
     } catch(err){
         console.log(err);
     }
