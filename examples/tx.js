@@ -25,3 +25,34 @@ var options = {
 }
 
 var radio = new SX128x({options});
+
+async function send(){
+    let count = 0;
+
+    try{
+        await radio.open();''
+    } catch(err){
+        console.log(err);
+    }
+    while(true){
+        //send a message every second.
+        try {
+            await radio.write(new Buffer('hello world ' + count++));
+            console.log('successfully sent');
+        } catch (err) {
+            console.log(err);
+        }
+        await util.promisfy(setTimeout)(1000);
+    }
+}
+send();
+
+process.on('SIGNINT', async function{
+    //close the devices
+    try {
+        await radio.close();
+    } catch (err) {
+        console.log(err);
+        process.exit();
+    }
+});
