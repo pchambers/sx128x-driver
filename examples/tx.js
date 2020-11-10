@@ -46,7 +46,7 @@ async function send(){
     }
 
 }
-send();
+await send();
 
 process.on('SIGNINT', async function () {
     //close the devices
