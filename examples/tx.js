@@ -30,7 +30,7 @@ async function send(){
     let count = 0;
 
     try{
-        await radio.open();''
+        await radio.open();
     } catch(err){
         console.log(err);
     }
@@ -44,6 +44,7 @@ async function send(){
         }
         await util.promisfy(setTimeout)(1000);
     }
+
 }
 send();
 
