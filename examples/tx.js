@@ -33,7 +33,7 @@ async function send(){
         await radio.open();
         console.log('opened');
     } catch(err){
-        console.log(err);
+        console.log('Error initializing radio ' + err);
     }
     //while(true){
     finally{
