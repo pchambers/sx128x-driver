@@ -19,10 +19,10 @@ var options = {
     busyPin : 18,
     packetType : regMasks.PACKET_TYPE_LORA,
     regulatorMode : 0x01,
-    ranging : False,
+    ranging : false,
     status : 0,
     rfFreq : regMasks.FREQ_24GHZ,
-    autoFS : False
+    autoFS : false
 }
 
 var radio = new SX128x({options});
