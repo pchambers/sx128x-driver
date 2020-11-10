@@ -42,7 +42,7 @@ async function send(){
         } catch (err) {
             console.log(err);
         }
-        await util.promisfy(setTimeout)(1000);
+        await util.promisify(setTimeout)(1000);
     }
 
 }
