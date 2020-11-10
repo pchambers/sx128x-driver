@@ -47,7 +47,7 @@ async function send(){
 }
 send();
 
-process.on('SIGNINT', async function{
+process.on('SIGNINT', async function () {
     //close the devices
     try {
         await radio.close();
