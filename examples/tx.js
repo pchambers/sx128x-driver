@@ -31,7 +31,6 @@ async function send(){
 
     try{
         await radio.open();
-        console.log('opened');
     } catch(err){
         //console.log('Error initializing radio ' + err);
         console.error(err);
@@ -40,6 +39,7 @@ async function send(){
     finally{
         //send a message every second.
         try {
+            console.log('trying to send messge');
             await radio.send(Buffer('hello world ' + count++));
             console.log('successfully sent: ');
         } catch (err) {
