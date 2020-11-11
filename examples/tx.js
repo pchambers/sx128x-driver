@@ -43,7 +43,7 @@ async function send(){
             await radio.send('hello world ' + count++);
             console.log('successfully sent');
         } catch (err) {
-            console.log(err);
+            console.log('Exited Send() with Err'+err);
         }
         await util.promisify(setTimeout)(1000);
     }
