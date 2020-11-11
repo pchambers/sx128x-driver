@@ -31,6 +31,7 @@ while(true){
     let msg = await radio.receive();
     if (msg){
         console.log('Message: ' + msg);
-        radio.sleep(1000);
+        console.log(radio.getPacketStatus());
     }
+    radio.sleep(1000);
 }
