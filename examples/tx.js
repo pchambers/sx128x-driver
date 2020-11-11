@@ -35,8 +35,7 @@ async function send(){
         //console.log('Error initializing radio ' + err);
         console.error(err);
     }
-    //while(true){
-    finally{
+    while(true){
         //send a message every second.
         try {
             console.log('trying to send message');
@@ -61,3 +60,4 @@ process.on('SIGNINT', async function () {
         process.exit();
     }
 });
+//compiles without warnings
