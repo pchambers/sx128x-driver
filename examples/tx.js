@@ -60,4 +60,3 @@ process.on('SIGNINT', async function () {
         process.exit();
     }
 });
-//compiles without warnings
