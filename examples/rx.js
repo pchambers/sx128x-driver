@@ -28,8 +28,8 @@ var radio = new SX128x({options});
 radio.listen = true;
 
 while(true){
-    let msg = radio.receive();
-    if (msg != null){
+    let msg = await radio.receive();
+    if (msg){
         console.log('Message: ' + msg);
         radio.sleep(1000);
     }
