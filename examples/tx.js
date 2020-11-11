@@ -13,7 +13,7 @@ let options = {
     irqMask : {irqMask:[0x40,0x23]},
     dioMask : {dio1Mask:[0x00,0x01], dio2Mask:[0x00,0x02], dio3Mask:[0x40,0x20]},
     spiBus : 0,
-    spiDevice : 0,
+    spiDevice : 1,
     resetPin : 17,
     busyPin : 18,
     packetType : regMasks.PACKET_TYPE_LORA,
