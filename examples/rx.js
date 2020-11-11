@@ -27,11 +27,24 @@ let options = {
 var radio = new SX128x({options});
 radio.listen = true;
 
-while(true){
-    let msg = radio.receive();
-    if (msg){
-        console.log('Message: ' + msg);
-        console.log(radio.getPacketStatus());
+async function receive(){
+    while(true){
+        let msg = radio.receive();
+        if (msg){
+            console.log('Message: ' + msg);
+            console.log(radio.getPacketStatus());
+        }
+        radio.sleep(1000);
     }
-    radio.sleep(1000);
 }
+receive();
+
+process.on('SIGNINT', async function () {
+    //close the devices
+    try {
+        await radio.close();
+    } catch (err) {
+        console.log(err);
+        process.exit();
+    }
+});
