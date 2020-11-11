@@ -32,17 +32,13 @@ async function send(){
     try{
         await radio.open();
     } catch(err){
-        //console.log('Error initializing radio ' + err);
         console.error(err);
     }
     while(true){
         //send a message every second.
         try {
-            console.log('trying to send message');
             await radio.send(('hello world ' + count++));
-            console.log('successfully sent');
         } catch (err) {
-            console.log('Exited Send() with Err');
             console.error(err);
         }
         await util.promisify(setTimeout)(1000);
