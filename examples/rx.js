@@ -25,16 +25,21 @@ let options = {
 }
 
 var radio = new SX128x({options});
-radio.listen = true;
 
 async function receive(){
+    radio.listen = true;
+    try{
+        await radio.open();
+    } catch(err){
+        console.error(err);
+    }
     while(true){
         try{
             let msg = await radio.receive();
         }catch(err){
             console.error(err);
         }
-        
+
         if (msg){
             console.log('Message: ' + msg);
             console.log(radio.getPacketStatus());
