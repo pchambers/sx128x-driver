@@ -29,12 +29,18 @@ radio.listen = true;
 
 async function receive(){
     while(true){
-        let msg = radio.receive();
+        try{
+            let msg = await radio.receive();
+        }catch(err){
+            console.error(err);
+        }
+        
         if (msg){
             console.log('Message: ' + msg);
             console.log(radio.getPacketStatus());
         }
-        radio.sleep(1000);
+
+        await util.promisify(setTimeout)(1000);
     }
 }
 receive();
