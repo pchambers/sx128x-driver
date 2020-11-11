@@ -35,15 +35,15 @@ async function send(){
         //console.log('Error initializing radio ' + err);
         console.error(err);
     }
-    //while(true){
-    finally{
+    while(true){
         //send a message every second.
         try {
-            console.log('trying to send messge');
-            await radio.send(Buffer('hello world ' + count++));
-            console.log('successfully sent: ');
+            console.log('trying to send message');
+            await radio.send('hello world ' + count++);
+            console.log('successfully sent');
         } catch (err) {
-            console.log(err);
+            console.log('Exited Send() with Err');
+            console.error(err);
         }
         await util.promisify(setTimeout)(1000);
     }
@@ -60,3 +60,4 @@ process.on('SIGNINT', async function () {
         process.exit();
     }
 });
+//compiles without warnings
