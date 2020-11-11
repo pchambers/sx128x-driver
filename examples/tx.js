@@ -37,7 +37,7 @@ async function send(){
     while(true){
         //send a message every second.
         try {
-            await radio.send(Buffer('hello world ' + count++));
+            await radio.send(new Buffer('hello world ' + count++));
         } catch (err) {
             console.error(err);
         }
