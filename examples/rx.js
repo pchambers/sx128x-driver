@@ -37,11 +37,12 @@ async function receive(){
         try{
             let msg = await radio.receive();
             let pktStatus = await radio.getPacketStatus();
-
-            if (msg){
+            console.log(msg);
+            console.log(pktStatus);
+            /*if (msg){
                 console.log('Message: '+msg);
-                console.log(pktStatus);
-            }
+                console.log(await radio.getPacketStatus());
+            }*/
         }catch(err){
             console.error(err);
         }
