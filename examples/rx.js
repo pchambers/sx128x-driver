@@ -40,7 +40,7 @@ async function receive(){
 
             if (msg){
                 console.log('Message: ' + msg);
-                console.log(radio.getPacketStatus());
+                console.log(await radio.getPacketStatus());
             }
         }catch(err){
             console.error(err);
