@@ -35,7 +35,7 @@ async function receive(){
     }
     while(true){
         try{
-            console.log('wait for receive');
+            //console.log('wait for receive');
             let msg = await radio.receive();
 
             if (msg){
