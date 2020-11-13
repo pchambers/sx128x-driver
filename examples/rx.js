@@ -36,12 +36,16 @@ async function receive(){
     while(true){
         try{
             //console.log('wait for receive');
-            let msg = await radio.receive();
+            /*let msg = await radio.receive();
 
             if (msg){
                 console.log('Message: ' + msg);
                 console.log(radio.getPacketStatus());
-            }
+            }*/
+            radio.receive().then((msg) => {
+                console.log('Message: ' + msg);
+                console.log(radio.getPacketStatus());
+            });
         }catch(err){
             console.error(err);
         }
