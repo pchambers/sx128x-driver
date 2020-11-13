@@ -41,6 +41,7 @@ async function receive(){
                 console.log('Message: '+msg);
                 //console.log(await radio.getPacketStatus());
                 console.log(pktStatus);
+                console.log('msg keys: ' + Object.keys(msg));
             }
         }catch(err){
             console.error(err);
