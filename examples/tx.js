@@ -24,7 +24,7 @@ let options = {
     autoFS : false
 }
 
-var radio = new SX128x();
+var radio = new SX128x(options);
 
 async function send(){
     let count = 0;
