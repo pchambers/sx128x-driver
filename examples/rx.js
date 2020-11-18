@@ -33,6 +33,7 @@ async function receive(){
     } catch(err){
         console.error(err);
     }
+    await radio.setBufferBaseAddr(0x80,0x00);
     while(true){
         try{
             let msg = await radio.receive();

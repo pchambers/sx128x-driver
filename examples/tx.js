@@ -34,6 +34,7 @@ async function send(){
     } catch(err){
         console.error(err);
     }
+    await radio.setBufferBaseAddr(0x80,0x00);
     while(true){
         //send a message every second.
         try {
