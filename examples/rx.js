@@ -22,7 +22,7 @@ let options = {
     status : 0,
     rfFreq : SX128x.FREQ_24GHZ,
     autoFS : false
-}
+};
 
 var radio = new SX128x({});
 
