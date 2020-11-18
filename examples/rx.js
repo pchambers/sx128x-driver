@@ -38,11 +38,9 @@ async function receive(){
             let msg = await radio.receive();
             let pktStatus = await radio.getPacketStatus();
             if (msg){
-                console.log('Message: '+msg);
-                //console.log(await radio.getPacketStatus());
+                console.log('Message: '+msg.toString('hex'));
                 console.log(pktStatus);
                 //console.log('msg keys: ' + Object.keys(msg));
-                console.log('msg: ' + msg.toString('ascii'));
             }
         }catch(err){
             console.error(err);
