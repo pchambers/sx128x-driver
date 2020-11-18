@@ -24,7 +24,7 @@ let options = {
     autoFS : false
 }
 
-var radio = new SX128x({options});
+var radio = new SX128x();
 
 async function receive(){
     radio.listen = true;
@@ -45,9 +45,6 @@ async function receive(){
         }catch(err){
             console.error(err);
         }
-
-
-
         await util.promisify(setTimeout)(1000);
     }
 }
