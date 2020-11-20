@@ -30,7 +30,7 @@ var ourTestMessage = {
 ourTestMessage.byteLength = ourTestMessage.sendBuffer.length;
 ourTestMessage.receiveBuffer = Buffer.alloc(ourTestMessage.byteLength);
 
- async function writeBuff(offset =0x00, data) {
+ async function writeBuff(offset =0x00, data, spiDevice) {
     return new Promise ((resolve, reject) => spiDevice.transfer([ourTestMessage], (err, messages) =>{
         if (err) reject(err);
         resolve(messages[0])
@@ -42,7 +42,7 @@ var ourReceiveMessage = {
     byteLength : 3,
     receiveBuffer : Buffer.alloc(ourTestMessage.sendBuffer.length)
 };
-async function readBuff (offset, payloadLen) {
+async function readBuff (offset, payloadLen, spiDevice) {
     return new Promise ((resolve, reject) => spiDevice.transfer([ourReceiveMessage], (err, messages) => {
         if (err) reject(err);
         resolve(messges[0]);
@@ -50,11 +50,11 @@ async function readBuff (offset, payloadLen) {
 }
 async function test(){
     let spiDevice = await openSpi(0,1);
-    let writeReturn = await writeBuff(0x00, ourTestMessage);
+    let writeReturn = await writeBuff(0x00, ourTestMessage, spiDevice);
     console.log('Received Write Buffer: ');
     console.log(writeReturn.sendBuffer);
 
-    let readReturn = await readBuff(0x00,ourTestMessage.sendBuffer.length);
+    let readReturn = await readBuff(0x00,ourTestMessage.sendBuffer.length, spiDevice);
     console.log('Received Read Buffer: ');
     console.log(readReturn.receiveBuffer);
 };
