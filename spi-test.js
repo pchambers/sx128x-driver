@@ -19,7 +19,7 @@ let openSpi = async function (spiBus, spiDevice){
     });
 }
 
-let spiDevice = await openSpi(0,1);
+
 
 var ourTestMessage = {
     sendBuffer : Buffer.concat([
@@ -48,11 +48,14 @@ async function readBuff (offset, payloadLen) {
         resolve(messges[0]);
     }))
 }
+async function test(){
+    let spiDevice = await openSpi(0,1);
+    let writeReturn = await writeBuff(0x00, ourTestMessage);
+    console.log('Received Write Buffer: ');
+    console.log(writeReturn.sendBuffer);
 
-let writeReturn = await writeBuff(0x00, ourTestMessage);
-console.log('Received Write Buffer: ');
-console.log(writeReturn.sendBuffer);
-
-let readReturn = await readBuff(0x00,ourTestMessage.sendBuffer.length);
-console.log('Received Read Buffer: ');
-console.log(readReturn.receiveBuffer);
+    let readReturn = await readBuff(0x00,ourTestMessage.sendBuffer.length);
+    console.log('Received Read Buffer: ');
+    console.log(readReturn.receiveBuffer);
+};
+test();
