@@ -28,7 +28,7 @@ var ourTestMessage = {
     ])
 };
 ourTestMessage.byteLength = ourTestMessage.sendBuffer.length;
-ourTestMessage.receiveBuffer = Buffer.alloc(ourTestMessage.byteLength);
+ourTestMessage.receiveBuffer = Buffer.alloc(ourTestMessage.byteLength+2);
 
  async function writeBuff(offset =0x00, data, spiDevice) {
     return new Promise ((resolve, reject) => spiDevice.transfer([ourTestMessage], (err, messages) =>{
@@ -40,7 +40,7 @@ ourTestMessage.receiveBuffer = Buffer.alloc(ourTestMessage.byteLength);
 var ourReceiveMessage = {
     sendBuffer : Buffer([0x1B, 0x00, 0x00]),
     byteLength : 3,
-    receiveBuffer : Buffer.alloc(ourTestMessage.sendBuffer.length)
+    receiveBuffer : Buffer.alloc(ourTestMessage.sendBuffer.length+3)
 };
 async function readBuff (offset, payloadLen, spiDevice) {
     return new Promise ((resolve, reject) => spiDevice.transfer([ourReceiveMessage], (err, messages) => {
