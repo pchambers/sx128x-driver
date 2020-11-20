@@ -36,8 +36,10 @@ let writeBuffer = async function(offset =0x00, data){
     }));
 }
 
+
+let writeReturn = await writeBuffer(0x00, ourTestMessage).sendBuffer;
 console.log('Received Write Buffer: ');
-console.log(await writeBuffer(0x00, ourTestMessage).sendBuffer);
+console.log(writeReturn);
 
 var ourReceiveMessage = {
     sendBuffer : Buffer([0x1B, 0x00, 0x00]),
@@ -50,5 +52,7 @@ let readBuffer = async function(offset, payloadLen){
         resolve(messges[0]);
     }))
 }
+
+let readReturn = await readBuffer(0x00,ourTestMessage.sendBuffer.length).receiveBuffer;
 console.log('Received Read Buffer: ');
-console.log(await readBuffer(0x00,ourTestMessage.sendBuffer.length).receiveBuffer);
+console.log(readReturn);
