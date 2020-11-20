@@ -45,7 +45,7 @@ var ourReceiveMessage = {
 async function readBuff (offset, payloadLen, spiDevice) {
     return new Promise ((resolve, reject) => spiDevice.transfer([ourReceiveMessage], (err, messages) => {
         if (err) reject(err);
-        resolve(messges[0]);
+        resolve(messages[0]);
     }))
 }
 async function test(){
