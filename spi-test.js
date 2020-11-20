@@ -18,7 +18,8 @@ let openSpi = async function (spiBus, spiDevice){
         })
     });
 }
-let spiDevice = openSpi(0,1);
+
+let spiDevice = await openSpi(0,1);
 
 var ourTestMessage = {
     sendBuffer : Buffer.concat([
