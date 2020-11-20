@@ -14,7 +14,7 @@ let openSpi = async function (spiBus, spiDevice){
     return new Promise ((resolve, reject) => {
         let spiObj = spi.open(spiBus, spiDevice, SPI_OPTIONS, err =>{
             if (err) reject(err);
-            resolve(spiOj);
+            resolve(spiObj);
         })
     });
 }
