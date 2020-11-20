@@ -18,7 +18,7 @@ let openSpi = async function (spiBus, spiDevice){
         })
     });
 }
-let spi-device = openSpi(0,1);
+let spiDevice = openSpi(0,1);
 
 var ourTestMessage = {
     sendBuffer : Buffer.concat([
@@ -30,7 +30,7 @@ var ourTestMessage = {
 };
 
 let writeBuffer = async function(offset =0x00, data){
-    return new Promise ((resolve, reject) => spi-device.transfer([ourTestMessage], (err, messages) =>{
+    return new Promise ((resolve, reject) => spiDevice.transfer([ourTestMessage], (err, messages) =>{
         if (err) reject(err);
         resolve(messages[0])
     }));
@@ -45,7 +45,7 @@ var ourReceiveMessage = {
     receiveBuffer : Buffer.alloc(ourTestMessage.sendBuffer.length)
 };
 let readBuffer = async function(offset, payloadLen){
-    return new Promise ((resolve, reject) => spi-device.transfer([ourReceiveMessage], (err, messages) => {
+    return new Promise ((resolve, reject) => spiDevice.transfer([ourReceiveMessage], (err, messages) => {
         if (err) reject(err);
         resolve(messges[0]);
     }))
