@@ -29,17 +29,12 @@ var ourTestMessage = {
     receiveBuffer : Buffer.alloc(byteLength)
 };
 
- async function writeBuffer (offset =0x00, data) {
+ async function writeBuffer(offset =0x00, data) {
     return new Promise ((resolve, reject) => spiDevice.transfer([ourTestMessage], (err, messages) =>{
         if (err) reject(err);
         resolve(messages[0])
     }));
-}
-
-
-let writeReturn = await writeBuffer(0x00, ourTestMessage).sendBuffer;
-console.log('Received Write Buffer: ');
-console.log(writeReturn);
+};
 
 var ourReceiveMessage = {
     sendBuffer : Buffer([0x1B, 0x00, 0x00]),
@@ -53,6 +48,10 @@ async function readBuffer (offset, payloadLen) {
     }))
 }
 
-let readReturn = await readBuffer(0x00,ourTestMessage.sendBuffer.length).receiveBuffer;
+let writeReturn = await writeBuffer(0x00, ourTestMessage);
+console.log('Received Write Buffer: ');
+console.log(writeReturn.sendBuffer);
+
+let readReturn = await readBuffer(0x00,ourTestMessage.sendBuffer.length);
 console.log('Received Read Buffer: ');
-console.log(readReturn);
+console.log(readReturn.receiveBuffer);
