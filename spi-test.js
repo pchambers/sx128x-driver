@@ -56,6 +56,6 @@ async function test(){
 
     let readReturn = await readBuff(0x00,ourTestMessage.sendBuffer.length, spiDevice);
     console.log('Received Read Buffer: ');
-    console.log(readReturn.sendBuffer);
+    console.log(readReturn.receiveBuffer.length);
 };
 test();
