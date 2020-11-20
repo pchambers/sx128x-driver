@@ -25,10 +25,10 @@ var ourTestMessage = {
     sendBuffer : Buffer.concat([
         Buffer([0x1A, 0x00]),
         Buffer.from('This is our buffer')
-    ]),
-    receiveBuffer : Buffer.alloc(byteLength)
+    ])
 };
 ourTestMessage.byteLength = ourTestMessage.sendBuffer.length;
+ourTestMessage.receiveBuffer = Buffer.alloc(ourTestMessage.byteLength);
 
  async function writeBuff(offset =0x00, data) {
     return new Promise ((resolve, reject) => spiDevice.transfer([ourTestMessage], (err, messages) =>{
