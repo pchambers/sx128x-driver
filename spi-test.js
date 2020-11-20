@@ -26,7 +26,7 @@ var ourTestMessage = {
         Buffer([0x1A, 0x00]),
         Buffer.from('This is our buffer')
     ]),
-    byteLength : sendBuffer.length,
+    byteLength : ourTestMessage.sendBuffer.length,
     receiveBuffer : Buffer.alloc(byteLength)
 };
 
