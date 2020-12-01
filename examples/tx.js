@@ -23,7 +23,8 @@ let options = {
     autoFS : false
 }
 console.log('packet type: ' +options.packetType);
-var radio = new SX128x(options);
+
+var radio = new SX128x({});
 
 async function send(){
     let count = 0;
