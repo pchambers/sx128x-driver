@@ -22,7 +22,7 @@ let options = {
     rfFreq : SX128x.FREQ_24GHZ,
     autoFS : false
 }
-
+console.log('packet type: ' +options.packetType);
 var radio = new SX128x(options);
 
 async function send(){
