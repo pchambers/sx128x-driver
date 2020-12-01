@@ -35,10 +35,10 @@ async function receive(){
     while(true){
         try{
             let msg = await radio.receive();
-            let pktStatus = await radio.getPacketStatus();
+            //let pktStatus = await radio.getPacketStatus();
             if (msg){
                 console.log('Message: '+msg.toString('hex'));
-                console.log(pktStatus);
+                //console.log(pktStatus);
                 //console.log('msg keys: ' + Object.keys(msg));
             }
         }catch(err){
