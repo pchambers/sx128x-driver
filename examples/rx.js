@@ -4,7 +4,6 @@ const util = require('util');
 const {exec} = require('child_process');
 
 var SX128x = require('../lib/sx128x');
-const regMasks = require('../lib/regMasks');
 
 let options = {
     modParams : { modParam1: SX128x.LORA_SF_5, modParam2:SX128x.LORA_BW_1600, modParam3:SX128x.LORA_CR_4_5},
