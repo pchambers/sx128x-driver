@@ -37,7 +37,7 @@ async function receive(){
             let msg = await radio.receive();
             //let pktStatus = await radio.getPacketStatus();
             if (msg){
-                console.log('Message: '+msg);
+                console.log('Message: '+msg.toString());
                 //console.log(pktStatus);
                 //console.log('msg keys: ' + Object.keys(msg));
             }
