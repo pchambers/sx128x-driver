@@ -12,7 +12,7 @@ let options = {
     irqMask : {irqMask:[0x00,0x00]},
     dioMask : {dio1Mask:[0x00,0x00], dio2Mask:[0x00,00], dio3Mask:[0x00,0x00]},
     spiBus : 0,
-    spiDevice : 1,
+    spiDevice : 0,
     resetPin : 17,
     busyPin : 18,
     packetType : SX128x.PACKET_TYPE_LORA,

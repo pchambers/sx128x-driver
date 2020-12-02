@@ -17,6 +17,10 @@
     "semtech"
   ],
   "author": "P. Chambers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pchambers/sx128x-driver"
+  },
   "license": "MIT",
   "dependencies": {
     "events": "^3.2.0",
