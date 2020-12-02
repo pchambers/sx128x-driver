@@ -23,7 +23,7 @@ let options = {
     autoFS : false
 };
 
-var radio = new SX128x({});
+var radio = new SX128x({spiDevice: 0});
 
 async function receive(){
     radio.listen = true;
