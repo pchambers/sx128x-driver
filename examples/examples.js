@@ -21,3 +21,4 @@ var options = {
 }
 
 var radio = new SX128x({options});
+radio.checkDevice();
