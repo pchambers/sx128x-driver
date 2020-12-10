@@ -24,7 +24,7 @@ let options = {
 };
 
 var radio = new SX128x({});//spiBus: 0,spiDevice : 0
-function test(){
+async function test(){
     await radio.open();
     //await radio._openSpi(0,0);
     await radio._config();
