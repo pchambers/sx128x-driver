@@ -24,10 +24,10 @@ let options = {
 }
 
 
-var radio = new SX128x({});
+var radio = new SX128x(options);
+
 async function testCheck(){
     await radio.open();
-    //await radio._openSpi(0,0);
     await radio._config();
     await radio.checkDevice();
 };
