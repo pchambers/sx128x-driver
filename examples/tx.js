@@ -35,13 +35,11 @@ process.on('SIGNINT', async function () {
 
 var radio = new SX128x(options);
 
-async function testCheck(){
-    await radio.open();
-    //await radio._config();
-    await radio.checkDevice();
-};
 
 async function send(){
+    await radio.open();
+    await radio.checkDevice();
+    await radio._checkBusy();
     let count = 0;
 /* - Comment out radio already open;
     try{
@@ -62,5 +60,4 @@ async function send(){
 
 }
 
-testCheck();
 send();
