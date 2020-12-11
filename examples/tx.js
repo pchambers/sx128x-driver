@@ -25,6 +25,12 @@ let options = {
 console.log('packet type: ' +options.packetType);
 
 var radio = new SX128x({});
+async function testCheck(){
+    await radio.open();
+    //await radio._openSpi(0,0);
+    await radio._config();
+    await radio.checkDevice();
+};
 
 async function send(){
     let count = 0;
@@ -45,7 +51,6 @@ async function send(){
     }
 
 }
-send();
 
 process.on('SIGNINT', async function () {
     //close the devices
@@ -56,3 +61,7 @@ process.on('SIGNINT', async function () {
         process.exit();
     }
 });
+
+
+testCheck();
+send();
