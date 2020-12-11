@@ -30,11 +30,11 @@ async function testCheck(){
     //await radio._config();
     await radio.checkDevice();
     await radio._checkBusy();
-    
+
     let msg = Buffer.from('hello')
     await radio.writeBuffer(msg,0x00);
     console.log(msg);
-    let rtn = await radio.readBuffer(0x00, msg.length);
+    let rtn = await radio.readBuffer(msg.length, msg.length);
     console.log(rtn);
 };
 
