@@ -23,6 +23,15 @@ let options = {
     autoFS : false
 }
 
+process.on('SIGNINT', async function () {
+    //close the devices
+    try {
+        await radio.close();
+    } catch (err) {
+        console.log(err);
+        process.exit();
+    }
+});
 
 var radio = new SX128x(options);
 
@@ -52,17 +61,6 @@ async function send(){
     }
 
 }
-
-process.on('SIGNINT', async function () {
-    //close the devices
-    try {
-        await radio.close();
-    } catch (err) {
-        console.log(err);
-        process.exit();
-    }
-});
-
 
 testCheck();
 send();
