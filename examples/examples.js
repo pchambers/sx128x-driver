@@ -34,7 +34,7 @@ async function testCheck(){
     let msg = Buffer.from('hello')
     await radio.writeBuffer(msg,0x00);
     console.log(msg);
-    let rtn = await radio.readBuffer(msg.length, msg.length);
+    let rtn = await radio.readBuffer(0x00, 0xFF);//0x00, msg.length);
     console.log(rtn);
 };
 
