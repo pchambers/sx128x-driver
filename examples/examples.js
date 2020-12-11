@@ -31,4 +31,4 @@ async function testCheck(){
     await radio.checkDevice();
 };
 
-test();
+testCheck();
