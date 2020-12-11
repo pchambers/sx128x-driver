@@ -27,8 +27,9 @@ var radio = new SX128x({});//spiBus: 0,spiDevice : 0
 async function testCheck(){
     await radio.open();
     //await radio._openSpi(0,0);
-    await radio._config();
+    //await radio._config();
     await radio.checkDevice();
+    await radio._checkBusy();
 };
 
 testCheck();

@@ -37,7 +37,7 @@ var radio = new SX128x(options);
 
 async function testCheck(){
     await radio.open();
-    await radio._config();
+    //await radio._config();
     await radio.checkDevice();
 };
 
