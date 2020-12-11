@@ -34,12 +34,13 @@ async function testCheck(){
 
 async function send(){
     let count = 0;
-
+/* - Comment out radio already open;
     try{
         await radio.open();
     } catch(err){
         console.error(err);
     }
+*/
     while(true){
         //send a message every second.
         try {
