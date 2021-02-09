@@ -55,7 +55,7 @@ async function send(){
         } catch (err) {
             console.error(err);
         }
-        let rtnMsg = await radio.readBuffer(71, String('hello ' + count).length);
+        let rtnMsg = await radio.readBuffer(0x00, String('hello ' + count).length);
         radio._trace('rtnMsg: '+ rtnMsg);
         console.log(rtnMsg);
         await util.promisify(setTimeout)(1000);
