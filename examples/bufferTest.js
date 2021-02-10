@@ -49,6 +49,14 @@ async function bufferTest(){
     }
     let updatedBuffer = await radio.readBuffer(0x20, testMsg.length);
 
+    console.log('testMsg');
+    console.log(testMsg);
+    radio._trace(testMsg);
+
+    console.log('updatedBuffer');
+    console.log(updatedBuffer);
+    radio._trace(updatedBuffer)
+
     if(Buffer.compare(testMsg, updatedBuffer)==0){
         radio._trace('Buffer Read/Write Test Successful!');
     }
