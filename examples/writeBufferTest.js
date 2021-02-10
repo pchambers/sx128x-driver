@@ -49,21 +49,19 @@ async function writeToBufferTest(){
             let testCommand = Buffer([0x1A,0x20]);//,0x1A,0x2B,0x3C,0x4D])
             radio._trace('testCommand');
             testCommand= Buffer.concat([testCommand, testMsg]);
-            console.log(testCommand);
             await radio._sendCommand(testCommand);
         } catch (err) {
             console.error(err);
         }
         // 0x1B is readBuffer Offset 0x00,
         let updatedBuffer = await radio._sendCommand(Buffer([0x1B,0x20,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00]));
-        radio._trace('updatedBuffer: ' + updatedBuffer);
+        //radio._trace('updatedBuffer: ' + updatedBuffer);
         if(Buffer.compare(testMsg, updatedBuffer)==0){
             radio._trace('Buffer Read/Write Test Successful!');
         }
         else{
             radio._trace('Buffer Read/Write Test Failed.');
         }
-        //console.log(updatedBuffer);
         //await util.promisify(setTimeout)(1000);
 //    }
 

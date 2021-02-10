@@ -43,18 +43,24 @@ async function writeToBufferTest(){
 
 //    while(true){
         //send a message every second.
+        let testMsg = Buffer.from('hello world');
         try {
-            //write Buffer Data 0x00,0x01,0x02,0x03 at offset 0x00
-            await radio.writeBuffer(Buffer([0x00,0x01,0x02,0x03]), 0x00);
+
+            //let testCommand = Buffer([0x1A,0x20]);//,0x1A,0x2B,0x3C,0x4D])
+            //radio._trace('testCommand');
+            //testCommand= Buffer.concat([testCommand, testMsg]);
+            await radio.writeBuffer(testMsg, 0x20);
         } catch (err) {
             console.error(err);
         }
-        let updatedBuffer = await radio.readBuffer(0x00, 4);
-        radio._trace('updatedBuffer: ' + updatedBuffer);
-        console.log(updatedBuffer);
-        //await util.promisify(setTimeout)(1000);
-//    }
+        let updatedBuffer = await radio.readBuffer(0x20, testMsg.length);
 
+        if(Buffer.compare(testMsg, updatedBuffer)==0){
+            radio._trace('Buffer Read/Write Test Successful!');
+        }
+        else{
+            radio._trace('Buffer Read/Write Test Failed.');
+        }
 }
 
 writeToBufferTest();
