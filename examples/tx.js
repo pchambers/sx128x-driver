@@ -62,6 +62,7 @@ async function send(){
         console.log(rtnMsg);
         console.log(sendBuffer);
         if(Buffer.compare(rtnMsg, sendBuffer)==0){
+            //both vgTest1 and vgTest2 rigs are testing successfully here.
             radio._trace('tx written to buffer successfully.');
         }
         await util.promisify(setTimeout)(1000);
