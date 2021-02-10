@@ -59,6 +59,7 @@ async function send(){
         let rtnMsg = await radio.readBuffer(0x00, sendBuffer.length);
         radio._trace('rtnMsg: '+ rtnMsg);
         console.log(rtnMsg);
+        console.log(sendBuffer);
         if(Buffer.compare(rtnMsg, sendBuffer)==0){
             radio._trace('tx written to buffer successfully.');
         }
