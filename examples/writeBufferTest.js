@@ -45,7 +45,7 @@ async function writeToBufferTest(){
         //send a message every second.
         try {
             //write Buffer 0x1A Offset 0x00 Data 0x00,0x01,0x02,0x03
-            await radio._sendCommand(Buffer([0x1A,0x20,0x00,0x01,0x02,0x03]));
+            await radio._sendCommand(Buffer([0x1A,0x20,0x1A,0x2B,0x3C,0x4D]));
         } catch (err) {
             console.error(err);
         }
