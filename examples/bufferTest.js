@@ -43,11 +43,11 @@ async function bufferTest(){
 
     let testMsg = Buffer.from('hello world');
     try {
-        await radio.writeBuffer(testMsg, 0x20);
+        await radio.writeBuffer(testMsg, 0x00);
     } catch (err) {
         console.error(err);
     }
-    let updatedBuffer = await radio.readBuffer(0x20, testMsg.length);
+    let updatedBuffer = await radio.readBuffer(0x00, testMsg.length);
 
     console.log('testMsg');
     console.log(testMsg);
