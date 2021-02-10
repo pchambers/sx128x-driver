@@ -36,7 +36,7 @@ process.on('SIGNINT', async function () {
 var radio = new SX128x(options);
 
 
-async function writeToBufferTest(){
+async function bufferTest(){
     await radio.open();
     await radio.checkDevice();
     await radio._checkBusy();
@@ -63,4 +63,4 @@ async function writeToBufferTest(){
         }
 }
 
-writeToBufferTest();
+bufferTest();
