@@ -45,13 +45,14 @@ async function writeToBufferTest(){
         //send a message every second.
         try {
             //write Buffer 0x1A Offset 0x00 Data 0x00,0x01,0x02,0x03
-            await radio._sendCommand(Buffer([0x1A,0x00,0x00,0x01,0x02,0x03]));
+            await radio._sendCommand(Buffer([0x1A,0x20,0x00,0x01,0x02,0x03]));
         } catch (err) {
             console.error(err);
         }
-        let updatedBuffer = await radio.readBuffer(0x00, 4);
-        radio._trace('updatedBuffer: ' + updatedBuffer);
-        console.log(updatedBuffer);
+        // 0x1B is readBuffer Offset 0x00,
+        let updatedBuffer = await radio._sendCommand(Buffer([0x1B,0x20,0x00,0x00,0x00,0x00]));
+        radio._trace('updatedBuffer: ' + updatedBuffer[0].readBuffer);
+        //console.log(updatedBuffer);
         //await util.promisify(setTimeout)(1000);
 //    }
 
