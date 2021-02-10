@@ -46,7 +46,7 @@ async function writeToBufferTest(){
         try {
             //write Buffer 0x1A Offset 0x00 Data 0x00,0x01,0x02,0x03
             let testCommand = Buffer([0x1A,0x20]);//,0x1A,0x2B,0x3C,0x4D])
-            let testMsg = Buffer.from('hello world');
+            let testMsg = Buffer.from(['hello world']);
             radio._trace('testCommand');
             testCommand= Buffer.concat(testCommand, testMsg);
             console.log(testCommand);
