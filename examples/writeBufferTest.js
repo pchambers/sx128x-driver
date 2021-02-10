@@ -41,10 +41,10 @@ async function writeToBufferTest(){
     await radio.checkDevice();
     await radio._checkBusy();
 
-    while(true){
+//    while(true){
         //send a message every second.
         try {
-            //write Buffer 0x1A Offset 0x00 Data 0x00,0x01,0x02,0x03 
+            //write Buffer 0x1A Offset 0x00 Data 0x00,0x01,0x02,0x03
             await radio._sendCommand(Buffer([0x1A,0x00,0x00,0x01,0x02,0x03]));
         } catch (err) {
             console.error(err);
@@ -53,7 +53,7 @@ async function writeToBufferTest(){
         radio._trace('updatedBuffer: ' + updatedBuffer);
         console.log(updatedBuffer);
         //await util.promisify(setTimeout)(1000);
-    }
+//    }
 
 }
 

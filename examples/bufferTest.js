@@ -41,7 +41,7 @@ async function writeToBufferTest(){
     await radio.checkDevice();
     await radio._checkBusy();
 
-    while(true){
+//    while(true){
         //send a message every second.
         try {
             //write Buffer Data 0x00,0x01,0x02,0x03 at offset 0x00
@@ -53,7 +53,7 @@ async function writeToBufferTest(){
         radio._trace('updatedBuffer: ' + updatedBuffer);
         console.log(updatedBuffer);
         //await util.promisify(setTimeout)(1000);
-    }
+//    }
 
 }
 
