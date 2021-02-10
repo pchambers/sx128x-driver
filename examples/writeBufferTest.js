@@ -53,7 +53,7 @@ async function writeToBufferTest(){
             console.error(err);
         }
         // 0x1B is readBuffer Offset 0x00,
-        let updatedBuffer = await radio._sendCommand(Buffer([0x1B,0x20,0x00,0x00,0x00,0x00]));
+        let updatedBuffer = await radio._sendCommand(Buffer([0x1B,0x21,0x00,0x00,0x00,0x00]));
         radio._trace('updatedBuffer: ' + updatedBuffer[0].receiveBuffer);
         //console.log(updatedBuffer);
         //await util.promisify(setTimeout)(1000);
