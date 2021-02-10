@@ -50,7 +50,7 @@ async function send(){
 */
     while(true){
         //send a message every second.
-        let sendMsg = ('hello' + count++)
+        let sendMsg = ('hello ' + count++)
         try {
             await radio.send(sendMsg);
         } catch (err) {
