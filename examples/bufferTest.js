@@ -41,26 +41,20 @@ async function bufferTest(){
     await radio.checkDevice();
     await radio._checkBusy();
 
-//    while(true){
-        //send a message every second.
-        let testMsg = Buffer.from('hello world');
-        try {
+    let testMsg = Buffer.from('hello world');
+    try {
+        await radio.writeBuffer(testMsg, 0x20);
+    } catch (err) {
+        console.error(err);
+    }
+    let updatedBuffer = await radio.readBuffer(0x20, testMsg.length);
 
-            //let testCommand = Buffer([0x1A,0x20]);//,0x1A,0x2B,0x3C,0x4D])
-            //radio._trace('testCommand');
-            //testCommand= Buffer.concat([testCommand, testMsg]);
-            await radio.writeBuffer(testMsg, 0x20);
-        } catch (err) {
-            console.error(err);
-        }
-        let updatedBuffer = await radio.readBuffer(0x20, testMsg.length);
-
-        if(Buffer.compare(testMsg, updatedBuffer)==0){
-            radio._trace('Buffer Read/Write Test Successful!');
-        }
-        else{
-            radio._trace('Buffer Read/Write Test Failed.');
-        }
+    if(Buffer.compare(testMsg, updatedBuffer)==0){
+        radio._trace('Buffer Read/Write Test Successful!');
+    }
+    else{
+        radio._trace('Buffer Read/Write Test Failed.');
+    }
 }
 
 bufferTest();
