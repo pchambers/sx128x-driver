@@ -50,12 +50,13 @@ async function send(){
 */
     while(true){
         //send a message every second.
+        let sendMsg = ('hello' + count++)
         try {
-            await radio.send('hello ' + count++);
+            await radio.send(sendMsg);
         } catch (err) {
             console.error(err);
         }
-        let sendBuffer = Buffer.from('hello ' + count);
+        let sendBuffer = Buffer.from(sendMsg);
         let rtnMsg = await radio.readBuffer(0x00, sendBuffer.length);
         radio._trace('rtnMsg: '+ rtnMsg);
         console.log(rtnMsg);
