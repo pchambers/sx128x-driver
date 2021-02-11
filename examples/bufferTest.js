@@ -43,12 +43,14 @@ async function bufferTest(){
 
     let testMsg = Buffer.from('hello world');
     try {
-        await radio.writeBuffer(testMsg, 0x00);
+        await radio.writeBuffer(testMsg, 0x20);
     } catch (err) {
         console.error(err);
     }
-    let updatedBuffer = await radio.readBuffer(0x00, testMsg.length);
+    let updatedBuffer = await radio.readBuffer(0x20, testMsg.length);
 
+    // debug logouts
+    /*
     console.log('testMsg');
     console.log(testMsg);
     radio._trace(testMsg);
@@ -56,7 +58,7 @@ async function bufferTest(){
     console.log('updatedBuffer');
     console.log(updatedBuffer);
     radio._trace(updatedBuffer)
-
+    */
     if(Buffer.compare(testMsg, updatedBuffer)==0){
         radio._trace('Buffer Read/Write Test Successful!');
     }
