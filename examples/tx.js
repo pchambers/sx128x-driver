@@ -59,8 +59,8 @@ async function send(){
         let sendBuffer = Buffer.from(sendMsg);
         let rtnMsg = await radio.readBuffer(0x00, sendBuffer.length);
         radio._trace('rtnMsg: '+ rtnMsg);
-        console.log(rtnMsg);
-        console.log(sendBuffer);
+        //console.log(rtnMsg);
+        //console.log(sendBuffer);
         if(Buffer.compare(rtnMsg, sendBuffer)==0){
             //both vgTest1 and vgTest2 rigs are testing successfully here.
             radio._trace('tx written to buffer successfully.');
