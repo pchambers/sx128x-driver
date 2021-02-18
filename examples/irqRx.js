@@ -31,7 +31,7 @@ async function receive(){
         console.error(err);
     }
     await setup();
-    console.log(radio.dioMask.dio1Mask);
+    console.log(radio._dioMask.dio1Mask);
     while(true){
         try{
             console.log('Waiting for Interrupt trigger.');
