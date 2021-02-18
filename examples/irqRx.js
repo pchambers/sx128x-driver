@@ -8,9 +8,7 @@ var SX128x = require('../lib/sx128x');
 var options = require('./options');
 
 var radio = new SX128x(options);
-
-console.log(options.dio1Pin);
-
+console.log(options.dioMask.dio1Mask);
 async function setup(){
     await radio.setStandby('STDBY_RC');
     await radio.setRegulatorMode(options.regulatorMode);
@@ -33,6 +31,7 @@ async function receive(){
         console.error(err);
     }
     await setup();
+    console.log(radio.dioMask.dio1Mask);
     while(true){
         try{
             console.log('Waiting for Interrupt trigger.');
