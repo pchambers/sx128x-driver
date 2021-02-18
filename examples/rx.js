@@ -49,6 +49,7 @@ async function receive(){
     } catch(err){
         console.error(err);
     }
+    await setup();
     while(true){
         try{
             let msg = await radio.receive();
@@ -75,5 +76,5 @@ process.on('SIGNINT', async function () {
     }
 });
 
-setup();
+
 receive();

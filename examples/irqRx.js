@@ -48,6 +48,7 @@ async function receive(){
     } catch(err){
         console.error(err);
     }
+    await setup();
     while(true){
         try{
             console.log('Waiting for Interrupt trigger.');
@@ -64,7 +65,6 @@ async function receive(){
         await util.promisify(setTimeout)(60000);
     }
 }
-setup();
 receive();
 
 process.on('SIGNINT', async function () {
