@@ -25,12 +25,12 @@ async function receive(){
     radio.listen = true;
     try{
         await radio.open();
+        await setup();
         await radio.checkDevice();
         await radio._checkBusy();
     } catch(err){
         console.error(err);
     }
-    await setup();
     while(true){
         try{
             console.log('Waiting for Interrupt trigger.');

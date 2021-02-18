@@ -12,11 +12,6 @@ https://github.com/StuartsProjects/SX12XX-LoRa/blob/master/examples/SX128x_examp
 
 var options = require('./options');
 
-/*****************************************************************
-This example is to test the setup from SX Arduino Library found:
-https://github.com/StuartsProjects/SX12XX-LoRa/blob/master/examples/SX128x_examples/Basics/4_LoRa_Receiver/4_LoRa_Receiver.ino
-*****************************************************************/
-
 var radio = new SX128x(options);//spiBus: 0,spiDevice : 0
 
 await radio.setStandby('STDBY_RC');
