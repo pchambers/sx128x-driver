@@ -44,7 +44,7 @@ async function receive(){
         }catch(err){
             console.error(err);
         }
-        await util.promisify(setTimeout)(60000);
+        await util.promisify(setTimeout)(10000);
     }
 }
 receive();
