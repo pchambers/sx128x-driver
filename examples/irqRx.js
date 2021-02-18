@@ -50,6 +50,7 @@ async function receive(){
     }
     while(true){
         try{
+            console.log('Waiting for Interrupt trigger.');
             let msg = await radio.receiveIntTrig();
             //let pktStatus = await radio.getPacketStatus();
             if (msg){
@@ -63,6 +64,7 @@ async function receive(){
         await util.promisify(setTimeout)(60000);
     }
 }
+setup();
 receive();
 
 process.on('SIGNINT', async function () {

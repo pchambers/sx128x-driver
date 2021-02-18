@@ -28,6 +28,18 @@ let options = {
 
 var radio = new SX128x(options);//spiBus: 0,spiDevice : 0
 
+async function setup(){
+    await radio.setStandby('STDBY_RC');
+    await radio.setRegulatorMode(options.regulatorMode);
+    await radio.setPacketType(options.packetType);
+    await radio.setRFFreq(options.rfFreq);
+    await radio.setBufferBaseAddr(options.txBaseAddr, options.rxBaseAddr);
+    await radio.setModulationParams(options.modParams);
+    await radio.setPacketParams(options.pktParams);
+    await radio.setDioIrqParams(options.irqMask, options.dioMask);
+    await radio.setHighSensitivity();
+}
+
 async function receive(){
     radio.listen = true;
     try{
@@ -52,7 +64,6 @@ async function receive(){
         await util.promisify(setTimeout)(1000);
     }
 }
-receive();
 
 process.on('SIGNINT', async function () {
     //close the devices
@@ -63,3 +74,6 @@ process.on('SIGNINT', async function () {
         process.exit();
     }
 });
+
+setup();
+receive();
