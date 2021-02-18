@@ -9,7 +9,7 @@ var options = require('./options');
 
 var radio = new SX128x(options);
 
-console.log(options.regulatorMode);
+console.log(options.dio1Pin);
 
 async function setup(){
     await radio.setStandby('STDBY_RC');
