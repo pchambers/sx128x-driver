@@ -1,3 +1,5 @@
+var SX128x = require('../lib/sx128x');
+
 var options = {
     txBaseAddress: 0x00,
     rxBaseAddress: 0x00,
