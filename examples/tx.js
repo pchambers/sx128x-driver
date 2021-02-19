@@ -36,11 +36,11 @@ async function send(){
         //send a message every second.
         let sendMsg = ('hello ' + count++)
         let sendReceipt = await radio.send(sendMsg);
-        console.log(sendReceipt);
-        if (sendReceipt.txDone){
+        await radio.irqParse();
+        if (radio.irqFlags.txDone){
             console.log('Tx Successful');
         }
-        if(sendReceipt.rxTxTimeout){
+        if(radio.irqFlags.rxTxTimeout){
             console.log('Tx Timeout');
         }
         let sendBuffer = Buffer.from(sendMsg);
