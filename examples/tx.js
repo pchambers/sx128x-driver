@@ -40,6 +40,7 @@ async function send(){
         } catch (err) {
             console.error(err);
         }
+        console.log(sendReceipt);
         if (sendReceipt.txDone){
             console.log('Tx Successful');
         }
@@ -55,7 +56,7 @@ async function send(){
             //both vgTest1 and vgTest2 rigs are testing successfully here.
             radio._trace('tx written to buffer successfully.');
         }
-        await util.promisify(setTimeout)(1000);
+        //await util.promisify(setTimeout)(1000);
     }
 
 }
