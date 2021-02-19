@@ -33,6 +33,9 @@ async function send(){
     await radio._checkBusy();
     let count = 0;
 
+    await radio.printModemSettings();
+    await radio.printOperatingSettings();
+
     while(true){
         //send a message every second.
         let sendMsg = ('hello ' + count++)
