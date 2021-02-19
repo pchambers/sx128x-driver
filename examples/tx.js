@@ -24,6 +24,7 @@ async function send(){
     await radio.open();
     await radio.checkDevice();
     await radio.printModemSettings();
+    await radio.printOperatingSettings();
     await radio._checkBusy();
     let count = 0;
 
