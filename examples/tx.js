@@ -25,13 +25,7 @@ async function send(){
     await radio.checkDevice();
     await radio._checkBusy();
     let count = 0;
-/* - Comment out radio already open;
-    try{
-        await radio.open();
-    } catch(err){
-        console.error(err);
-    }
-*/
+
     while(true){
         //send a message every second.
         let sendMsg = ('hello ' + count++)
@@ -52,7 +46,7 @@ async function send(){
             //both vgTest1 and vgTest2 rigs are testing successfully here.
             radio._trace('tx written to buffer successfully.');
         }
-        //await util.promisify(setTimeout)(1000);
+        await util.promisify(setTimeout)(3000);
     }
 
 }
