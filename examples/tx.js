@@ -35,11 +35,7 @@ async function send(){
     while(true){
         //send a message every second.
         let sendMsg = ('hello ' + count++)
-        try {
-            let sendReceipt = await radio.send(sendMsg);
-        } catch (err) {
-            console.error(err);
-        }
+        let sendReceipt = await radio.send(sendMsg);
         console.log(sendReceipt);
         if (sendReceipt.txDone){
             console.log('Tx Successful');
