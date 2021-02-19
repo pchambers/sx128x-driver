@@ -36,9 +36,15 @@ async function send(){
         //send a message every second.
         let sendMsg = ('hello ' + count++)
         try {
-            await radio.send(sendMsg);
+            let sendReceipt = await radio.send(sendMsg);
         } catch (err) {
             console.error(err);
+        }
+        if (sendReceipt.txDone){
+            console.log('Tx Successful');
+        }
+        if(sendReceipt.rxTxTimeout){
+            console.log('Tx Timeout');
         }
         let sendBuffer = Buffer.from(sendMsg);
         let rtnMsg = await radio.readBuffer(0x00, sendBuffer.length);
