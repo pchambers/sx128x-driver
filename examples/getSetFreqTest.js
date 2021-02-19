@@ -15,7 +15,7 @@ async function getSetTest(){
     await radio.checkDevice();
     await radio._checkBusy();
 
-    var input = 0xBC1994;
+    var input = [0xBC, 0x19, 0x94];
     console.log(input);
     await radio.setRFFreq(input);
     var returnFreq = await radio._getFreqInt();
