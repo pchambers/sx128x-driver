@@ -23,6 +23,7 @@ var radio = new SX128x(options);
 async function send(){
     await radio.open();
     await radio.checkDevice();
+    await radio.printModemSettings();
     await radio._checkBusy();
     let count = 0;
 
