@@ -31,12 +31,8 @@ async function send(){
         let sendMsg = ('hello ' + count++)
         let sendReceipt = await radio.send(sendMsg);
         //await radio.irqParse();
-        if (radio.irqFlags.txDone){
-            console.log('Tx Successful');
-        }
-        if(radio.irqFlags.rxTxTimeout){
-            console.log('Tx Timeout');
-        }
+        console.log('Tx Done ' + radio.irqFlags.txDone );
+        console.log('RxTx Timeout ' + radio.irqFlags.rxTxTimeout);
         let sendBuffer = Buffer.from(sendMsg);
         let rtnMsg = await radio.readBuffer(0x00, sendBuffer.length);
         radio._trace('rtnMsg: '+ rtnMsg);
